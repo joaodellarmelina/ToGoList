@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">Voltar</a>
+    <div>
+        <form action="/task" method="post">
+            <label for="titulo">Título:</label>
+            <input type="text" name="titulo" id="titulo">
+            <br>
+            <label for="vencimento">Dt. Vencimento:</label>
+            <input type="date" name="vencimento" id="vencimento">
+            <br>
+            <label for="descricao">Descrição:</label>
+            <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+            <button type="submit" id="botao">Enviar</button>
+        </form>
+
+    </div>
+</body>
+</html>
+<script>
+    let botao = document.getElementById("botao")
+    botao.addEventListener("click", b =>{
+        b.preventDefault();
+        let titulo = document.getElementById("titulo")
+        let descricao = document.getElementById("descricao")
+        let vencimento = document.getElementById("vencimento")
+
+        let data = {
+            titulo: titulo.value,
+            descricao: descricao.value,
+            vencimento: vencimento.value
+        }
+
+        // enviaPost(data)
+        fetch("/api/todo", {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+        window.location = "/"
+
+    })
+</script>

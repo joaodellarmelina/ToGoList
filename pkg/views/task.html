@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToGoList</title>
+</head>
+<body>
+    <a href="/"><h3>Voltar</h3></a>
+    <h1>#{{.ID}} - {{.Titulo}}</h1>
+    <h2>{{.Status}}</h2>
+    <h2>Descrição: {{.Descricao}}</h2>
+    <button onclick="DoneTask()">Concluir</button>
+</body>
+</html>
+<script>
+    async function DoneTask(){
+        let escolha = confirm("Deseja concluir esta tarefa?")
+        if (escolha) {
+             fetch("/task?id={{.ID}}", {
+                    method: "PUT"
+                }).then(r =>{
+                    r.json().then(res=>{
+                        console.log(res)
+                    })
+                })
+        }
+        
+    }
+    
+</script>

@@ -1,0 +1,11 @@
+
+    <a href="/task/add">Adicionar Task</a>
+    {{range .}}
+    <div class="task" style="border: 2px solid black; margin: 0px 5px 5px 5px; padding: 0vw 1vw 1vw 1vw;">
+        <a href="/task?id={{.ID}}"><h2>#{{.ID}} - {{.Titulo}}</h2></a>
+        <h3>{{.Vencimento}}</h3>
+        <div class="description">
+            <p>Descrição: {{.Descricao}} </p>
+        </div>    
+    </div>
+    {{end}}
