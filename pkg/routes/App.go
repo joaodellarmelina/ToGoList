@@ -115,20 +115,21 @@ func Task(w http.ResponseWriter, r *http.Request) {
 
 /*
 Handler para criar uma Task/Tarefa de acordo com o form -
-Method: GET
+Method: GET/POST
 */
 func AddTask(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "POST":
-		var task = model.Task{}
+		var task = new(model.Task)
 
 		fmt.Println(r.Body)
-		err := json.NewDecoder(r.Body).Decode(&task)
+		err := json.NewDecoder(r.Body).Decode(task)
 		if err != nil {
 			println(err.Error())
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
+
 		controller.PostTask(task)
 
 	case "GET":
