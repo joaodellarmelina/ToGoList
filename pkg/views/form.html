@@ -1,31 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset=" UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nova Tarefa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
-<body>
-    <a href="/">Voltar</a>
-    <div>
+<style>
+    * {
+        margin: 5px;
+    }
+
+    html,
+    body {
+        height: 95%;
+    }
+</style>
+
+<body
+    class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-primary d-flex justify-content-center align-items-center flex-column">
+
+    <h1 class="display-3 ">Nova tarefa saindo.</h1>
+
+    <div class="container-fluid d-flex justify-content-start align-items-center flex-column ">
+
         <form action="/task" method="post">
-            <label for="titulo">Título:</label>
-            <input type="text" name="titulo" id="titulo">
-            <br>
-            <label for="vencimento">Dt. Vencimento:</label>
-            <input type="date" name="vencimento" id="vencimento">
-            <br>
-            <label for="descricao">Descrição:</label>
-            <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
-            <button type="submit" id="botao">Enviar</button>
+
+            <div class="col container-fluid">
+                <label class="text-light lead" for="titulo">Título:</label>
+                <input type="text" placeholder="Um bom titulo" name="titulo" id="titulo"
+                    class="form-control form-control-lg" style="font: 30px;">
+            </div>
+
+
+            <div class="container-fluid">
+                <label class="text-light lead">Descrição</label>
+                <textarea class=" form-control" placeholder="Uma breve descrição da sua tarefa."
+                    id="descricao"></textarea>
+            </div>
+
+            <div>
+                <label class=" text-light lead " for=" vencimento">Dt. Conclusão:</label>
+                <input type="date" name="vencimento" id="vencimento">
+            </div>
+
+            <div class="col">
+                <label class="text-lig-ht lead" for="vencimento">Dt. Vencimento:</label>
+                <input type="date" name="vencimento" id="vencimento">
+            </div>
+
         </form>
 
+
+
+        <div class="container-fluid lead d-flex justify-content-center">
+
+            <a type="submit" id="botao" class="btn bg-light mb-3 text-primary btn-lg">Enviar</a>
+            <a href="/" role="button" class="btn bg-light mb-3 text-primary btn-lg">Voltar</a>
+
+        </div>
+
     </div>
+
+
 </body>
+
 </html>
 <script>
     let botao = document.getElementById("botao")
-    botao.addEventListener("click", b =>{
+    botao.addEventListener("click", b => {
         b.preventDefault();
         let titulo = document.getElementById("titulo")
         let descricao = document.getElementById("descricao")
@@ -46,3 +92,15 @@
 
     })
 </script>
+
+<style>
+    #vencer {
+        margin-top: 20px;
+        margin-bottom: 10px;
+
+    }
+
+    label {
+        margin-bottom: 10px;
+    }
+</style>

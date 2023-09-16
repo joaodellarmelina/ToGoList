@@ -1,11 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <a href="/task/add">Adicionar Task</a>
-    {{range .}}
-    <div class="task" style="border: 2px solid black; margin: 0px 5px 5px 5px; padding: 0vw 1vw 1vw 1vw;">
-        <a href="/task?id={{.ID}}"><h2>#{{.ID}} - {{.Titulo}}</h2></a>
-        <h3>{{.Vencimento}}</h3>
-        <div class="description">
-            <p>Descrição: {{.Descricao}} </p>
-        </div>    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas tarefas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body
+    class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-primary d-flex justify-content-center align-items-center flex-column ">
+
+    <!-- BOTÕES E TITULO -->
+    <div class=" container-sm" style="margin-top: 20px;">
+
+        <a href="/task/add" id="AdicionarTask" role="button" class="btn text-secondary bg-light btn-sm rounded lead"
+            style="padding: 15px;">Esconder tarefas</a>
+
+        <a href="/task/add" id="AdicionarTask" role="button" class="btn text-primary bg-light btn-sm rounded lead"
+            style="padding: 15px;">Adicionar Task</a>
+
+
+
+        <h1 class="display-3 ">E tome tarefas...</h1>
+
+
     </div>
+
+
+    <!-- ESTRUTURA DE TAREFAS -->
+    {{range .}}
+
+    <div class="lead rounded bg-transparant" style=" border: 1px solid rgb(255, 255, 255); margin-bottom: 10px;
+        padding: 0vw 1vw 1vw 1vw; width: 50%; height: 150px;">
+
+        <p style="font-size: 35px; cursor:default; margin: 0;">- {{.Titulo}}</p>
+        <p style="margin: 0; font-size: 10px; ">tarefa nº {{.ID}}</p>
+
+        <!-- <div class="text-light">
+            <p>Descrição: {{.Descricao}} </p>
+        </div> -->
+
+        <div class="d-flex flex-row justify-content-around">
+            <p class="small " style="margin: 0; cursor:default;">A tarefa vence em <span class="bg-danger">
+                    {{.Vencimento}}</span> / Irei
+                conclui-lá: <span class="bg-warning">---</span>
+            </p>
+        </div>
+
+        <div class="d-flex flex-row justify-content-around">
+
+            <!-- VER MAIS DETALHES -->
+            <a href="/task?id={{.ID}}" class="btn btn-secondary btn-sm col-6">Ver mais
+                detalhes...</a>
+
+            <!-- todo: SERIA INTERESSANTE COLOCAR A OPÇÃO DE " CONCLUIR" DIRETO AQUI -->
+            <button id="confirmar" class="btn btn-success col-2">Concluir</button>
+        </div>
+
+
+
+
+        <!-- todo: COLOCAR DATA PREVISTA PARA CONCLUIR A TAREFA -->
+    </div>
+
     {{end}}
+
+</body>
+
+<script>
+    // botão confirmar 
+    const confirm = document.getElementById("confirmar");
+    // FUNÇÃO
+    function DoneTask() {
+        fetch("/task?id={{.ID}}", {
+            method: "PUT"
+        }).then(r => {
+            r.json().then(res => {
+                console.log(res)
+            })
+        })
+    }
+    // AO CLICAR -> FUNÇÃO
+    confirm.addEventListener("click", DoneTask)
+
+
+</script>

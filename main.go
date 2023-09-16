@@ -12,6 +12,6 @@ func main() {
 	http.HandleFunc("/task/add", routes.AddTask)
 	http.HandleFunc("/api/todo", routes.Tasks)
 
-	println("Teste")
+	println("Só rodar baby")
 	http.ListenAndServe(":8030", nil)
 }
