@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/main
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.Titulo}}</title>
 </head>
+<<<<<<< HEAD
 
 <body class="p-3 m-0 border-0 bd-example m-0 border-0 text-bg-primary ">
 
@@ -13,6 +17,16 @@
 
     <h1>{{.Titulo}}</h1>
     <h2>{{.Status}}</h2>
+=======
+<body>
+    <a href="/"><h3>Voltar</h3></a>
+    <h1>#{{.ID}} - {{.Titulo}}</h1>
+    {{if .Status}}
+    <h2>Feita</h2>
+    {{else}}
+    <h2>Não Feita</h2>
+    {{end}}
+>>>>>>> refs/remotes/origin/main
     <h2>Descrição: {{.Descricao}}</h2>
     <button onclick="DoneTask()">Concluir</button>
 

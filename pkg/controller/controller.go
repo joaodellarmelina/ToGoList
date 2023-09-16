@@ -18,7 +18,7 @@ func GetAllTasks(tasks *[]model.Task) []model.Task{
 	return *tasks
 }
 
-func PostTask(task model.Task){
+func PostTask(task *model.Task){
 	db.Create(task)
 }
 
