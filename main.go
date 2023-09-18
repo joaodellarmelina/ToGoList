@@ -11,6 +11,6 @@ func main() {
 	http.HandleFunc("/task", routes.Task)
 	http.HandleFunc("/task/add", routes.AddTask)
 
-	println("Só rodar baby")
-	http.ListenAndServe(":8030", nil)
+	println("Run in: http://localhost:8030")
+	http.ListenAndServe(":8030", nil)s
 }
