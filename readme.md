@@ -1,6 +1,11 @@
 # Gerenciador de Tarefas em Golang
 
-Este é um projeto simples de gerenciamento de tarefas desenvolvido em Golang. Ele permite criar, listar, atualizar e excluir tarefas.
+Este é um projeto simples de gerenciamento de tarefas desenvolvido em Golang. Ele permite criar, listar e excluir tarefas.
+
+# Autores
+   * Ramsés De Oliveira Martins (Back-end)
+   * João Vitor Dellarmelina (Front-end)
+   
 
 ## Pré-requisitos
 
@@ -41,5 +46,3 @@ O aplicativo suporta os seguintes comandos:
 4. Envie as alterações para o seu fork: git push origin minha-funcionalidade
 5. Abra um Pull Request no repositório original.
 
-## Licença
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo LICENSE para obter detalhes.
