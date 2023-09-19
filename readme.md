@@ -16,7 +16,7 @@ Certifique-se de ter o Go instalado em seu sistema. Você pode fazer o download 
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/gerenciador-de-tarefas-golang.git
+   git clone https://github.com/RamsesMartins/ToGoList.git
 2. Navegue até o diretório do projeto:
    ```bash
    go build
