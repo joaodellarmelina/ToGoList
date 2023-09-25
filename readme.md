@@ -2,6 +2,8 @@
 
 Este é um projeto simples de gerenciamento de tarefas desenvolvido em Golang. Ele permite criar, listar e excluir tarefas.
 
+![ToGO](img/togo.gif)
+
 # Autores
    * Ramsés De Oliveira Martins (Back-end)
    * João Vitor Dellarmelina (Front-end)
